@@ -1,0 +1,6 @@
+
+nameOverride: "home-task"
+fullnameOverride: "home-task"
+namespace: "revolut"
+
+
