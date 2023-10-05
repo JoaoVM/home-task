@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "PYTHON REVOLUT",
+    "dateExported": "2023-10-05T11:22:50.768Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b1cad237-1916-418c-9604-148f9b45a62b",
+            "colId": "58f6a1be-d14b-4705-82e3-a9bc44cf2fb8",
+            "containerId": "",
+            "name": "GET",
+            "url": "http://localhost:55345/hello/joao",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-28T14:49:28.968Z",
+            "modified": "2023-10-05T11:22:19.327Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "abe680a9-d05d-4037-941b-61daeae6dfef",
+            "colId": "58f6a1be-d14b-4705-82e3-a9bc44cf2fb8",
+            "containerId": "",
+            "name": "INSERT AND UPDATE",
+            "url": "http://localhost:55345/hello/joao",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-09-28T14:49:44.911Z",
+            "modified": "2023-10-05T11:22:43.207Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \"dateOfBirth\": \"1990-09-08\" }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c2b11873-f96d-4d24-90a6-16529698efc1",
+            "colId": "58f6a1be-d14b-4705-82e3-a9bc44cf2fb8",
+            "containerId": "",
+            "name": "DELETE",
+            "url": "http://localhost:55345/hello/joao/delete",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-09-28T23:24:34.480Z",
+            "modified": "2023-10-05T11:22:41.300Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d9e27a5f-5f2a-42b5-ab6b-e06881f7116f",
+            "colId": "58f6a1be-d14b-4705-82e3-a9bc44cf2fb8",
+            "containerId": "",
+            "name": "HEALTHCHECK",
+            "url": "http://localhost:55345/healthcheck",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-02T15:24:42.973Z",
+            "modified": "2023-10-04T10:23:02.366Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
