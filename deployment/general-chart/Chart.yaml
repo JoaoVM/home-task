@@ -39,3 +39,6 @@ dependencies:
   - name: opentelemetry-collector
     version: 0.69.2
     repository: https://github.com/open-telemetry/opentelemetry-helm-charts
+  - name: uptime-kuma
+    version: 2.14.2
+    repository: https://dirsigler.github.io/uptime-kuma-helm

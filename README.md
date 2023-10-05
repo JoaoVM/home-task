@@ -16,7 +16,7 @@ this application.
 ## Folder Structure
  - app (Python code with Dockerfile and docker-compose file)
  - deployment (Helm Charts to be deployed)
- - docs (Images of diagram and screenshots of the app running)
+ - docs (Images and diagram and screenshots of the app running)
 
  
 
