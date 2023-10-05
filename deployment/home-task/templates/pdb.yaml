@@ -1,0 +1,16 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "home-task.fullname" . }}
+  namespace: {{ include "home-task.namespace" . }}
+  labels:
+    app: {{ include "home-task.name" . }}
+    chart: {{ include "home-task.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "home-task.name" . }}
+      release: {{ .Release.Name }}
+  maxUnavailable: {{ .Values.podDisruptionBudget.maxUnavailable }}

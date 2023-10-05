@@ -1,0 +1,46 @@
+# Default values for home-task.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: "home-task"
+fullnameOverride: "home-task"
+namespace: "revolut"
+
+replicaCount: 3
+
+image:
+  repository: joaomartins990/home-task-revolut
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.0.9"
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 256Mi
+  requests:
+    cpu: 150m
+    memory: 128Mi
+
+livenessProbe:
+  enabled: true
+  failureThreshold: 3
+  periodSeconds: 5
+  initialDelaySeconds: 30
+
+readinessProbe:
+  enabled: true
+  failureThreshold: 3
+  periodSeconds: 5
+  initialDelaySeconds: 30
+
+updateStrategy:
+  type: RollingUpdate
+  maxUnavailable: 25%
+
+service:
+  type: ClusterIP
+  port: 80
+
+podDisruptionBudget:
+  maxUnavailable: 1
