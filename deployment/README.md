@@ -20,10 +20,10 @@ To install the helm chart all you need is to change directory to ```deployment``
 helm upgrade --install home-task general-chart -f general-chart/values.yaml --namespace revolut --create-namespace
 ```
 If everything is ok you should get the same result as the following image:
- ![Deploy Command Line](../docs/deploy-heml-chart.jpg?raw=true "Deploy Command Line")
+ ![Deploy Command Line](../docs/images/deploy-heml-chart.jpg?raw=true "Deploy Command Line")
 
  And them, if you use Openlens your pods should be like this:
- ![OpenLens Status](../docs/openlens-heml-chart.jpg?raw=true "OpenLens Status")
+ ![OpenLens Status](../docs/images/openlens-heml-chart.jpg?raw=true "OpenLens Status")
 
 
 #### general-chart
