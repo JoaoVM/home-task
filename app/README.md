@@ -99,3 +99,15 @@ You can test inside cluster by using curl tool.
 
 #### get_birthday_message
  ![Get user - Normal birthday](../docs/images/curl-get.jpg?raw=true "Get user - Normal birthday")
+
+## Testing the APP
+Unfortunately I was not able to complete the test task.
+I was not able to use mocks for testing mysql integration and then I had to move to sqllite3 database.
+However, the test is designed but unfortunately it's not working properly.
+
+To run the test use the following command:
+``` 
+python3 -m unittest test_app.py
+
+```
+It will use the local database named "birthdays.db".

@@ -1,5 +1,6 @@
 import unittest
 import sqlite3
+import os
 from datetime import datetime
 from unittest.mock import patch
 
@@ -44,7 +45,7 @@ class AppTestCase(unittest.TestCase):
             self.assertEqual(response.status_code, 204)
             
             # Test that the user was successfully inserted/updated in the mock database
-            self.cursor.execute("SELECT * FROM `user` WHERE `username`='testuser'")
+            self.cursor.execute("SELECT * FROM `users` WHERE `username`='testuser'")
             result = self.cursor.fetchone()
             self.assertIsNotNone(result)
             self.assertEqual(result[1], datetime.strptime(data['dateOfBirth'], '%Y-%m-%d').date())
@@ -52,7 +53,7 @@ class AppTestCase(unittest.TestCase):
     def test_delete_user(self):
         with app.test_client() as client:
             # Insert a test user into the mock database
-            self.cursor.execute("INSERT INTO `user` (`username`, `date_of_birth`) VALUES ('testuser', '1990-01-01')")
+            self.cursor.execute("INSERT INTO `users` (`username`, `date_of_birth`) VALUES ('testuser', '1990-01-01')")
             self.conn.commit()
             
             # Patch the real database connection with the mock connection
@@ -63,14 +64,14 @@ class AppTestCase(unittest.TestCase):
             self.assertEqual(response.status_code, 204)
             
             # Test that the user was successfully deleted from the mock database
-            self.cursor.execute("SELECT * FROM `user` WHERE `username`='testuser'")
+            self.cursor.execute("SELECT * FROM `users` WHERE `username`='testuser'")
             result = self.cursor.fetchone()
             self.assertIsNone(result)
 
     def test_get_birthday_message(self):
         with app.test_client() as client:
             # Insert a test user into the mock database
-            self.cursor.execute("INSERT INTO `user` (`username`, `date_of_birth`) VALUES ('testuser', '1990-01-01')")
+            self.cursor.execute("INSERT INTO `users` (`username`, `date_of_birth`) VALUES ('testuser', '1990-01-01')")
             self.conn.commit()
             
             # Patch the real database connection with the mock connection
