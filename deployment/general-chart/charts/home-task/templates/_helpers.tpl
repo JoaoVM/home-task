@@ -80,6 +80,13 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
+Create the name of the unit tests to use on init container
+*/}}
+{{- define "home-task.initContainer" -}}
+{{- default "unittests-" (include "home-task.fullname" .) }}
+{{- end }}
+
+{{/*
 Create the name of the service to use
 */}}
 {{- define "home-task.serviceName" -}}

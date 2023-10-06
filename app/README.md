@@ -1,8 +1,25 @@
 # Home Task Application
 
 ### Note
-Please note that to build this python app with a database I'm using a remote database, tanking advantage of service AWS RDS Aurora compatible with Mysql. 
+Please note that to build this python app with a database I'm using a remote database, tanking advantage of service AWS RDS Aurora compatible with PostgreSQL. 
 That will allow to keep our date with backups and recurrent snapshots, scaling instances to read and write and without having the issues of maintaining the database.
+
+### Local usage of the app
+First please be aware, if you try to run python code locally, before start run the following command:
+
+```
+pip install -r requirements.txt
+```
+If for some reasoon psycopg2 failed to install, open requirements.txt and comment psycopg2 and uncoment psycopg2-binary. Then run the command again and should work fine.
+
+To test the app please run the following command:
+
+```
+python3 apppsql.py
+```
+
+Then use Thunder Client collection to execute the tests.
+
 
 ## Functions
  - healthcheck
@@ -101,13 +118,19 @@ You can test inside cluster by using curl tool.
  ![Get user - Normal birthday](../docs/images/curl-get.jpg?raw=true "Get user - Normal birthday")
 
 ## Testing the APP
-Unfortunately I was not able to complete the test task.
-I was not able to use mocks for testing mysql integration and then I had to move to sqllite3 database.
-However, the test is designed but unfortunately it's not working properly.
+Regarding the tests, it will execute the unit tests for the app requirements.
+I was able to use mocks for testing postgresql integration.
 
 To run the test use the following command:
 ``` 
-python3 -m unittest test_app.py
+pip install -r requirements.txt
+
+python3 -m unittest -v test_app.py
 
 ```
-It will use the local database named "birthdays.db".
+
+Also, the the statefulset is created, it will also create init container who will execute the unit tests.
+You can check the result of the init container on the following image.
+If the tests failed then the main container won't be installed.
+
+ ![Init Container Tests](../docs/images/init-container-tests.jpg?raw=true "Init Container Tests")

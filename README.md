@@ -101,3 +101,5 @@ If you don't want to install docker on Mac, alternatively you can use Colima
 ```
 
 #### Install Thunder Client or Postman (I'm using Thunder Client extension on VSCode, it's up to you)
+You can find the collection for thunder client with name ```thunder-collection_home-task.json``` inside "app" folder.
+Don't forget to change ports if needed.
