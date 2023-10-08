@@ -3,3 +3,4 @@ app/.DS_Store
 docs/.DS_Store
 app/__pycache__/
 **/.DS_Store
+docs/~*
